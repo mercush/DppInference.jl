@@ -1,0 +1,34 @@
+using LinearAlgebra
+using DppInference
+R=randn(10,10)
+L=Symmetric(R*R')
+d=DPP(L)
+sample_exact(d)
+kd=kDPP(4,L)
+sample_exact(kd)
+pmf(d, [1,2])
+pmf(kd, [1])
+
+# use a big L
+R=randn(20,20)
+L=Symmetric(R*R')
+d=DPP(L)
+enumerate_map(d)
+rand_approx_map(d)
+mcmc_map(d)
+
+# 3x3 L
+R=randn(3,3)
+L=Symmetric(R*R')
+d=DPP(L)
+cd = condition_include(d, [1])
+viz_hist_exact(d)
+enumerate_map(d)
+viz_hist_exact(cd)
+
+# use 10x10 L
+R=randn(20,20)
+L=Symmetric(R*R')
+d=DPP(L)
+viz_hist_exact(d)
+viz_hist_mcmc(d)
