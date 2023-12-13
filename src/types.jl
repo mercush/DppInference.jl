@@ -9,7 +9,7 @@ mutable struct DeterminantalPointProcess <: PointProcess
 
     function DeterminantalPointProcess(L::Symmetric)
         Lfact = eigen(L)
-        K = Symmetric(L*(L+I)^-1)
+        K = Symmetric(L/(L+I))
         Z = det(L+I)
         N = size(L, 1)
         new(L, Lfact, K, Z, N)

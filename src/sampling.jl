@@ -18,7 +18,7 @@ function randprojDPP(Y::Matrix)
         𝓘[k] = rand(Categorical(p[:]))
         Y=(Y*qr(Y[𝓘[k],:]).Q )[:,2:end] 
     end
-    return 𝓘
+    return sort(𝓘)
 end
 
 

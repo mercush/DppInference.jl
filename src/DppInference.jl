@@ -24,7 +24,16 @@ export
 
     # visualizing
     viz_hist_exact,
-    viz_hist_mcmc
+    viz_hist_mcmc,
+
+    # learning
+    learn_ka,
+    learn_fp,
+    learn_em,
+    kl_div,
+
+    # synthetic data generation
+    build_training_set
 
 # types
 include("types.jl")
@@ -34,8 +43,13 @@ include("conditioning.jl")
 include("sampling.jl")
 include("viz.jl")
 include("prob.jl")
+include("learn.jl")
 
 # utils
 include("utils.jl")
+
+# synthetic data
+include("syntheticdatagen/build_training_set.jl")
+include("syntheticdatagen/borodin.jl")
 
 end
